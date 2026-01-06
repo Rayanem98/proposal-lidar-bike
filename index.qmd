@@ -16,7 +16,6 @@ authors:
     affiliations: 
       - ref: um-dearborn
 
-
 affiliations:
   - id: um-dearborn
     name: University of Michigan-Dearborn
@@ -30,6 +29,8 @@ affiliations:
 
 date: 2026-01-14
 
+footer: "Transportation Research Board Annual Meeting 2026"
+
 ---
 
 ## Bicycling in the U.S.
@@ -42,8 +43,7 @@ date: 2026-01-14
 ## High resolution 3D lidar
 
 - Lidar (Light Detection and Ranging) is a laser-based sensor that captures 3D representations of surroundings.
-- It enables detailed 3D analysis of road user behavior and interactions (e.g., drivers, bicyclists) in a given environment.
-
+- It enables detailed 3D analysis of road user behaviors and interactions (e.g., drivers, bicyclists) in real-world settings.
 
 :::: {.columns}
 ::: {.column width="30%"}
@@ -63,34 +63,34 @@ date: 2026-01-14
 ## {data-menu-title="The lidar-equipped research bicycle"}
 
 ::: {style="text-align:center;font-size:50px;"}
-![The lidar-equipped research bicycle](assets/images/lidar-bike.png){fig-align="center" height="580"}
+![The research bicycle equipped with a lidar (Ouster OS1 128-channel)](assets/images/lidar-bike.png){height="550"}
 :::
 
 ## {data-menu-title="Point cloud demo"}
 
-::: {style="text-align:center;"}
-[![](assets/images/point-cloud-demo.png){fig-align="center" height="580"}](https://fenggroup.org/pointcloud/examples/bike-2.html){preview-link="true"}
+::: {style="text-align:center;font-size:50px;"}
+[![Demonstration of the point cloud collected from the lidar bicycle](assets/images/point-cloud-demo.png){height="550"}](https://fenggroup.org/pointcloud/examples/bike-2.html){preview-link="true"}
 :::
 
 ## Preliminary data collection
 
 :::: {.columns}
-::: {.column width="60%"}
-- Two bicycle rides in Ann Arbor, MI
-- **4-lane** arterial road with **35 mph** speed limit
-- A **painted bike lane** on each side
-- Bicycle riding speed: 12-15 mph
-- Bicycle riding in the middle of the bike lane
+::: {.column width="58%"}
+- Two trips in Ann Arbor, MI
+- **4-lane** arterial road
+  - **35 mph** speed limit
+  - **painted bike lane** on each side
+- Bicycle riding behavior
+  - stay in the middle of bike lane
+  - riding speed: 12-15 mph
+
 - **306** vehicle overtaking events
 :::
-::: {.column width="40%"}
-![](assets/images/ride-course.png){fig-align="center"}
-
-![](assets/images/front-camera-fov.png){fig-align="center"}
+::: {.column width="42%"}
+![](assets/images/ride-course.png)
+![](assets/images/front-camera-fov.png)
 :::
 ::::
-
-
 
 ## {data-menu-title="Data collection demo video"}
 
@@ -112,9 +112,8 @@ date: 2026-01-14
 ## {data-menu-title="Algorithm flow chart" }
 
 ::: {style="font-size:50px;"}
-![The overtaking vehicle detection and tracking algorithm](assets/images/flowchart.png){fig-align="center"}
+![The overtaking vehicle detection and tracking algorithm](assets/images/algorithm-flowchart.png)
 :::
-
 
 ## {data-menu-title="Segmented vehicles"}
 
@@ -133,28 +132,25 @@ date: 2026-01-14
 Segmented overtaking vehicles with their 3D bounding boxes
 :::
 
-
 ## Surrogate Safety Measures (1/3)
 - **Passing distance**: the closest distance from the lidar to the car within the passing region
 - **Passing duration**: the duration of time that a vehicle spends in the bicycle's passing region
 
-
 :::: {.columns}
 ::: {.column}
-![Begin of passing](assets/images/passing-phase-begin.png)
+![Begin of passing](assets/images/passing-phase-begin.png){height="220"}
 :::
 ::: {.column}
-![End of passing](assets/images/passing-phase-end.png)
+![End of passing](assets/images/passing-phase-end.png){height="220"}
 :::
 ::::
 
 ## Surrogate Safety Measures (2/3)
 - **Bicycle speed**: Based on frame-to-frame registration with
-  - RANSAC (Random Sample Consensus)[@ransac]
-  - ICP (Iterative Closest Point)[@icp]
+  - RANSAC (Random Sample Consensus [@ransac])
+  - ICP (Iterative Closest Point [@icp])
 
-  
-![](assets/images/icp-diagram.png){fig-align="center"}
+![](assets/images/icp-diagram.png){fig-align="center" height="340"}
 
 ## Surrogate Safety Measures (3/3)
 - **Vehicle Speed**
@@ -168,12 +164,11 @@ Segmented overtaking vehicles with their 3D bounding boxes
 $$
 \text{vehicle speed} = \text{relative vehicle speed} + \text{bicycle speed}
 $$
-   
 
 ## Results
 
 - 306 overtaking events from two trips
-- 98 events had valid C3FT [@C3FT] readings.
+- 98 events had valid C3FT [@C3FT] readings (ground truth).
 - Passing distance validation: MAE: 3.9 cm, MAPE: 2.5%
 
 :::: {.columns}
@@ -185,12 +180,10 @@ $$
 :::
 ::::
 
-
-
 ## {data-menu-title="Bicycle speed validation" }
 
 ::: {style="font-size:45px"}
-![Validation of bicycle speed estimation based on GPS speed ground truth](assets/images/speed-validation-plot.png){fig-align="center"}
+![Validation of bicycle speed estimation based on GPS speed ground truth](assets/images/speed-validation-plot.png)
 :::
 
 ## {data-menu-title="Result figures"}
@@ -216,8 +209,8 @@ $$
 
 - Continued data collection across more roadway types and traffic conditions.
 - Refine methods to improve vehicle detection reliability under challenging conditions like tilted bike and curved roadway conditions.
-- Analyze vehicle trajectories to better understand other overtaking characteristics; 
-  e.g. : vehicle lateral movement,  and the timing to initiate the overtaking.
+- Analyze vehicle trajectories to better understand other overtaking characteristics.
+  - e.g., vehicle lateral movements, the *timing* selection to initiate an overtaking
 
 ## Acknowledgements
 
@@ -243,9 +236,6 @@ This material is based upon work supported by the National Science Foundation un
 
 - Public repositories
   - Data: [fenggroup.org/lidar-bike](https://fenggroup.org/lidar-bike/)
-  - Code: [fenggroup.org/lidar-bike-code](https://github.com/fenggroup/overtaking-vehicle-tracking-lidar)
-- Contact
-  - Rayane Moustafa: <rayanem@umich.edu>
-  - Dr. Fred Feng: <fredfeng@umich.edu>
-
-<!-- ![](assets/images/fenggroup-logo.png){.absolute bottom=0 right=0 height="40"} -->
+  - Code: [github.com/fenggroup/pointcloud-overtaking-vehicle-tracker](https://github.com/fenggroup/pointcloud-overtaking-vehicle-tracker)
+- Contact: <fenggroup@umich.edu>
+- Stay up to date: <https://fenggroup.org>
