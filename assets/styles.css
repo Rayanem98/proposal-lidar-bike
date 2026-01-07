@@ -18,3 +18,14 @@
   right: 0px;
 }
 
+.reveal .quarto-figure {
+  margin: 0em;
+}
+
+.reveal img {
+  margin-bottom: 0em;
+}
+
+.reveal .quarto-layout-panel {
+  margin-bottom: 0.5em;
+}
