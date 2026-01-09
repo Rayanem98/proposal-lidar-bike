@@ -134,14 +134,15 @@ Examples of segmented vehicles with 3D bounding boxes
 :::
 
 ## Surrogate Safety Measures (1/3)
-- **Passing distance**: the closest distance from the lidar to the car within the passing region
-- **Passing duration**: the duration of time that a vehicle spends in the bicycle's passing region
 
 ::: {layout-ncol=2}
 ![**Begin** of passing](assets/images/passing-phase-begin.png){height="220"}
 
 ![**End** of passing](assets/images/passing-phase-end.png){height="220"}
 :::
+
+- **Passing distance**: the closest distance from the lidar to the car within the passing region
+- **Passing duration**: the duration of time that a vehicle spends in the bicycle's passing region
 
 ## Surrogate Safety Measures (2/3)
 - **Bicycle speed**: Based on frame-to-frame registration with
